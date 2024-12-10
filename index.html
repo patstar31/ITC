@@ -1,9 +1,188 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <title>Interactive Navigation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: "Lato", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Navbar Styles */
+        .w3-top {
+            z-index: 100;
+        }
+
+        .w3-bar {
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .w3-bar a {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .w3-bar a:hover {
+            background-color: #555;
+            color: #fff;
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            width: 80%;
+            height: 65%; /* Adjusted the size */
+            position: relative;
+            margin: auto;
+            margin-top: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-item {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: absolute;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            opacity: 0;
+            transform: scale(0.9);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            color: white;
+            cursor: pointer;
+            background-size: cover;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 10;
+        }
+
+        .carousel-item h2 {
+            font-size: 30px;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 20;
+            transition: background-color 0.3s;
+        }
+
+        .arrow:hover {
+            background-color: #555;
+        }
+
+        .arrow-left {
+            left: -60px;
+        }
+
+        .arrow-right {
+            right: -60px;
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            font-size: 12px; /* Reduced size */
+            padding: 5px 0; /* Reduced padding */
+        }
+
+        /* Hover Effect for Items */
+        .carousel-item:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-black w3-card">
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    </div>
+</div>
+
+<!-- Carousel Section -->
+<div class="carousel-container">
+    <!-- Arrows -->
+    <button class="arrow arrow-left" onclick="moveCarousel(-1)">&#8592;</button>
+
+    <!-- Individual Rectangles -->
+    <div class="carousel-item active" onclick="location.href='Assignment1.html';">
+        <h2>Assignment 1<br>Conversion Tasks</h2>
+    </div>
+    <div class="carousel-item" onclick="location.href='Assignment2.html';">
+        <h2>Assignment 2<br>Income Tax Calculator</h2>
+    </div>
+    <div class="carousel-item" onclick="location.href='Assignment3.html';">
+        <h2>Assignment 3<br>Loops & Operations</h2>
+    </div>
+    <div class="carousel-item" onclick="location.href='Assignment4.html';">
+        <h2>Assignment 4<br>Simple Payroll</h2>
+    </div>
+
+    <button class="arrow arrow-right" onclick="moveCarousel(1)">&#8594;</button>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>CS 1130 - Introduction to Computing | Created by Patrick Alwyn S. Han</p>
+</footer>
+
+<script>
+    // Carousel Logic
+    const items = document.querySelectorAll('.carousel-item');
+    let currentIndex = 0;
+
+    function moveCarousel(direction) {
+        items[currentIndex].classList.remove('active'); // Hide current item
+        currentIndex += direction;
+
+        // Wrap around if index is out of bounds
+        if (currentIndex < 0) currentIndex = items.length - 1;
+        if (currentIndex >= items.length) currentIndex = 0;
+
+        items[currentIndex].classList.add('active'); // Show new item
+    }
+</script>
 
 </body>
 </html>

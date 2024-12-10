@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Tax Calculator</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: "Lato", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e3f2fd, #90caf9);
+            display: flex;
+            flex-direction: column;
+
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .w3-top {
+            z-index: 100;
+        }
+
+        .w3-bar {
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .w3-bar a {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .w3-bar a:hover {
+            background-color: #555;
+            color: #fff;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1; /* Push footer to the bottom */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 0;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .sw-title {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            width: 100%;
+            max-width: 300px;
+            box-sizing: border-box;
+        }
+
+        input:focus, button:focus {
+            outline: none;
+            border-color: #2196f3;
+            box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
+        }
+
+        button {
+            background: #2196f3;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background: #1769aa;
+            transform: scale(1.05);
+        }
+
+        #taxoutput {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        /* Back Link */
+        .back-link {
+            margin-top: 20px;
+            margin-bottom :120px;
+            text-align: center;
+        }
+
+        .back-link a {
+            color: #2196f3;
+            font-size: 16px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #090000;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+            <a href="index.html" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+            <a href="Assignment1.html" class="w3-bar-item w3-button w3-padding-large">Assignment 1</a>
+            <a href="Assignment3.html" class="w3-bar-item w3-button w3-padding-large">Assignment 3</a>
+            <a href="Assignment4.html" class="w3-bar-item w3-button w3-padding-large">Assignment 4</a>
+
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="title-container">
+                <h1 class="sw-title">Taxable Income</h1>
+                <input type="number" id="inputValue" placeholder="Enter Taxable Income">
+                <button onclick="computetax()">Compute Tax</button>
+                <div id="taxoutput"></div>
+            </div>
+        </div>
+    </main>
+    <!-- Go back to Home Page-->
+     <div class = "back-link">
+    <a href = "index.html">Back to Home Page</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>CS 1130 - Introduction to Computing | Assignment 1</p>
+        Created by Patrick Alwyn S. Han © 2024
+    </footer>
+
+    <!-- External JS -->
+    <script src="incomeTax.js"></script>
+</body>
+</html>
